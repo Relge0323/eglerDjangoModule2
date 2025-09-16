@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ character.name }} - Details</title>
+    <link rel="stylesheet" href="{% static 'rpg/styles.css' %}">
+</head>
+<body>
+    <h1>{{ character.name }}</h1>
+
+    <div class="detail-box">
+        <a href="{% url 'character_list' %}"> --Back to Characters--</a>
+
+        <p><strong>Game:</strong> {{ character.game }}</p>
+        <p><strong>Class:</strong> {{ character.class_job }}</p>
+        <p><strong>Race:</strong> {{ character.race }}</p>
+        <p><strong>Description:</strong> {{ character.description }}</p>
+
+        <h2>Abilities</h2>
+        <ul>
+            {% for ability in character.abilities.all %}
+                <li>{{ ability.name }} {% if ability.element %}({{ ability.element }}){% endif %}</li>
+            {% empty %}
+                <li>No abilities assigned.</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Equipment</h2>
+        <ul>
+            {% for item in character.equipment.all %}
+                <li>{{ item.name }}</li>
+            {% empty %}
+                <li>No equipment assigned.</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Quests</h2>
+        <ul>
+            {% for quest in character.quests.all %}
+                <li>{{ quest.name }} - {{ quest.difficulty }}</li>
+            {% empty %}
+                <li>No quests assigned.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    
+</body>
+</html>
