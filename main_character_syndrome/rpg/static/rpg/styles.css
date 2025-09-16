@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background: brown;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+.character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.character-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0);
+}
+
+.character-card h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: red;
+}
+
+.character-card p {
+    margin: 4px 0;
+    color: black;
+}

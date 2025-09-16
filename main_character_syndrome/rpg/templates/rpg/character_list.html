@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Character Syndrome</title>
+    <link rel="stylesheet" href="{% static 'rpg/styles.css' %}">
+</head>
+
+<body>
+    <h1> Main Character Syndrome</h1>
+        <ul class="character-list">
+            {% for character in characters %}
+            <li class="character-card">
+                <h2>{{ character.name }}</h2>
+                <p><strong>Game:</strong> {{ character.game }}</p>
+                <p><strong>Class:</strong> {{ character.class_job }}</p>
+                <p><strong>Race:</strong> {{ character.race }}</p>
+            <li>
+                {% endfor %}
+        </ul>
+</body>
+</html>
