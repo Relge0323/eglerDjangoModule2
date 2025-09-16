@@ -1,8 +1,14 @@
 from django.contrib import admin
-from .models import Character
+from .models import Character, Ability
 
 # Register your models here.
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
     list_display = ('name', 'game', 'class_job', 'race')
     search_fields = ('name', 'game', 'class_job')
+    filter_horizontal = ('abilities',)
+
+
+@admin.register(Ability)
+class AbilityAdmin(admin.ModelAdmin):
+    list_display = ('name', 'type', 'element')
